@@ -12,6 +12,32 @@ html,body{
 }
 
 
+
+/*-------------------------------------- Main Scrollbar Customisation-----------------------------------------*/
+
+body::-webkit-scrollbar{
+    /*it will hide the scrollbar on right*/
+    /* display: none; */
+
+    display: block;
+    width: 5px;
+    background: linear-gradient(to bottom,rgb(17, 175, 175),black);
+
+
+    /* Now the scroll handlw is called as THUMB */
+
+}
+
+
+/*----------------------------------- Now the scroll handle is called as THUMB -------------------------------*/
+
+body::-webkit-scrollbar-thumb{
+    background-color: whitesmoke;
+    border-radius: 50px;
+}
+
+
+
 /*-------------------------------Styling the cursor moving with the Mouse Pointer-----------------------------*/
 
 
