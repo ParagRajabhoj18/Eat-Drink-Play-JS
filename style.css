@@ -1,0 +1,588 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa';
+    color:white
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+
+/*-------------------------------Styling the cursor moving with the Mouse Pointer-----------------------------*/
+
+
+#cursor{
+    height: 25px;
+    width: 25px;
+    background-color: rgb(94, 193, 193);
+    border-radius: 50%;
+    /* to make cursor CIRCULAR */
+    z-index: 99; 
+    /* it will display the cursor at top right corner of the Window */
+
+    position:fixed;
+}
+
+
+#cursor-blur{
+    height: 300px;
+    width: 300px;
+    background-color: rgba(125, 202, 202, 0.496);
+    border-radius: 50%;
+    /* to make cursor CIRCULAR */
+    position:fixed;
+    filter: blur(30px);
+    z-index: 9;
+}
+
+
+
+
+
+/*-------------------------------------------------NAVIGATION BAR ------------------------------------*/
+
+
+#nav{
+    display: flex; /*so that all the contents come in one line*/
+    height: 145px;
+    width: 100%;
+    /* background-color: red; */
+    align-items: center;
+    padding: 0 150px;
+    justify-content: flex-start;
+    gap: 45px;
+    position: fixed;
+    z-index: 99; /*  to overlay the nav bar on the video  */
+}
+
+#nav img{
+    height: 75px;
+}
+
+#nav h4{
+    /* text-transform: uppercase; */
+    text-transform: capitalize;    /* capitalizes the first letter of each Word */
+    font-weight: 500;
+}
+
+/* VIDEOS */
+
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position:fixed;
+    z-index: -1;
+}
+
+
+
+/*-------------------------------------------------Main-------------------------------------------------------*/
+
+#main{
+    /* To add a black tint on the video */
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.389); 
+    
+}
+
+
+
+
+
+
+/*------------------------------------------------PAGE 1------------------------------------------------------*/
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+    position: relative;
+    /* ye har ek parent div ko denge kyuki isse childrens RELATED rehate hai */
+
+    
+    display: flex;
+    /* Display flex:- mtlb apke kisi bhi div ko ek rows me align karna or uske childrens ko rows and columns ke form me dalna 
+        asan bhasha me aapke kisi bhi div ko ek flexible box me convert karna*/
+
+        flex-direction: column;
+        /* yahape humne uske position ko row ke form me convert kiya */
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 10;/* for cursor blur */
+
+    
+}
+
+#page1 h1{
+    font-size: 140px;
+    font-weight: 900;
+    position: relative;
+}
+
+/* Now in the main website u can see that here is the shadow effect to h1 so we use the concept "PSEUDO ELEMENTS" which was released in new CSS versions
+so that u can write text in css also as follows:- */
+
+#page1 h1::before{
+    /* content:"i" ; */
+    /* here u can see i is added BEFORE EAT casue we used before */
+    
+    content:"EAT.DRINK.PLAY";
+    position: absolute;
+    color: black;
+    top:-5px; /*as we need it for h1 so we will make "#page1 h1" relative position */
+    left: -5px;
+    -webkit-text-stroke: 2px cyan;
+    z-index: -1;
+}
+
+#page1 h2{
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#page1 p{
+    font-size: 20px;
+    font-weight: 500;
+    width: 50%;
+}
+
+#page1 #arrow{
+    height: 200px;
+    width: 200px;
+    background-color: transparent;
+    border: 2px solid cyan;
+    left: -2%;
+    bottom: -2%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all ease 0.6s;
+
+}
+
+
+#page1 #arrow i{
+    font-size: 50px;
+    font-weight: 100;
+
+}
+
+
+#page1 #arrow:hover{
+    scale: 0.4;
+    background-color: rgb(94, 193, 193);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------------------PAGE 2------------------------------------------------------*/
+
+
+#page2{
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;/* for cursor blur */
+}
+
+
+
+
+#scroller{
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+}
+
+/* To hide the scroll bar we use:- */
+
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+
+#scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;  /* We have created the animation below wusing keyframes with name as Scroll*/
+    animation-duration: 30s; 
+    animation-timing-function: linear;
+    animation-iteration-count: infinite; /* So that the animation runs for continuously */
+}
+
+
+#scroller h4{
+    display: inline-block;
+    font-size: 120px;
+    font-weight: 900;
+    margin-right: 10px;
+    color: transparent;
+    font-family: 'gilroy';
+    -webkit-text-stroke: 2px rgb(255, 255, 255); /* To give the stroke to the letters*/
+    transition: all linear 0.4s;
+}
+
+#scroller h4:hover{
+    color: whitesmoke;
+}
+
+/* Way to make animations  */
+@keyframes scroll{
+    from{                                   /* start of animation */
+        transform: translateX(0);
+    }
+    to{                                     /* end of animation */
+        transform: translateX(-100%);
+    }
+}
+
+
+
+/* ------------------------------------------------------------About Us------------------------------------------------------------------------- */
+
+
+#about-us{
+    display: flex;
+    height: 40vh;
+    width: 100%;
+    /* background-color: red; */
+    padding: 0 50px;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    /* we write position: relative and z index so that the cursor blur appears under the element and not on top of it */
+    justify-content: space-around;
+
+}
+
+#about-us img {
+    height: 220px;
+    width: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+#about-us-in{
+    width: 50%;
+    text-align: center;
+}
+
+#about-us-in h3{
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+#about-us-in p{
+    font-size: 20px;
+    line-height: 26px;
+    /* to create a space between lines */
+}
+
+/* ------------------------------------------------------------Cards------------------------------------------------------------------------- */
+
+#cards-container{
+    /* background-color: red; */
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 70px;
+    position: relative;
+    z-index: 10;
+}
+
+.card{
+    height: 80%;
+    width: 24%;
+    /* background-color: blue; */
+    border-radius: 20px;
+    /* to align the bg-images at the center of the box :- */
+    background-size: cover;
+    background-position: center;
+    transition: all ease 0.6s;
+
+}
+
+#card1 {
+    background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-toptracer-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+}
+#card2 {
+    background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/hero-4-1024x1024.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+}
+#card3 {
+    background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-lessons-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+}
+
+
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(17, 175, 175);
+    padding: 30px;
+    padding-top: 80px;
+    opacity: 0;
+    border-radius: 20px;
+    transition: all ease 0.6s;
+}
+
+.overlay h4{
+    color: black;
+    font-size: 32px;
+    text-transform: uppercase ;
+    font-weight: 700;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    font-family: 'Mulish';
+
+}
+
+.overlay p{
+    color: black;
+    font-size: 15px;
+}
+
+.card:hover .overlay{
+    opacity: 1;
+}
+
+       /* -------Tilt Effect for Cards------- */
+
+.card:hover{
+    transform: rotate3d(1,-1,0,10deg);  /* x,y,z,degrees of rotation */
+}
+
+
+
+
+
+/*------------------------------------------------- Dots Background ---------------------------------------------------------------------> */
+
+#green-div{
+    height: 30vh;
+    background: rgb(17, 175, 175);
+    font-weight: 800;
+    display: flex;
+    align-items: center; /* So that the img will come at the center of the website */
+    justify-content: space-between;
+    /* background-color: red; */
+    background: linear-gradient(to left,rgb(17, 175, 175),rgba(255, 255, 255, 0.89));
+    
+}
+
+#green-div h4{
+    width: 50%;
+    color: #000;
+    line-height:50px;
+    font-size: 27px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#green-div img{
+    height: 100%;
+    object-fit: cover;
+    width: 15%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------------------PAGE 3------------------------------------------------------*/
+
+#page3{
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#page3>p{  /* iska matlab Page 3 ke direct andar jo Paragraph hai*/
+    font-size: 35px;
+    width: 60%;
+    line-height: 45px;
+    text-align:  center;
+}
+
+#page3 img{
+    position: absolute; /*Whenever u give position to child as absolute always give the position to parent as relative i.e to page 3*/
+    height: 60px;
+}
+
+#page3 #colon1{
+    left: 15%;
+    top: 25%;
+}
+
+#page3 #colon2{
+    bottom: 30%;
+    right: 15%;
+}
+
+
+
+
+
+
+
+
+
+/*------------------------------------------------PAGE 3------------------------------------------------------*/
+
+#page4{
+    height: 30vh;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position: relative;
+}
+
+
+#page4 h1{
+    font-size: 87px;
+    position: absolute;
+    top: -10%;
+    font-weight: bold;
+    font-family: gilroy;
+    color: black;
+    -webkit-text-stroke: 2px white;
+}
+
+.elem{
+    height:60%;
+    width: 26%;
+    overflow: hidden; /* so the overflow of the images will not be visible */
+    border-radius: 20px;
+    position: relative;
+}
+
+.elem h2{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(17, 175, 175);
+    display: flex;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    position: absolute;
+    z-index: 10;
+    transition: all ease 0.6s;
+
+}
+
+.elem img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    scale: 1.1;
+}
+
+.elem:hover h2{
+    color: white;
+    background-color: transparent;
+}
+
+.elem:hover img{
+    scale: 1;
+}
+
+
+
+/*------------------------------------------------FOOTER------------------------------------------------------*/
+
+#footer{
+    display: flex;
+    height: 40vh;
+    width: 100%;
+    background: linear-gradient(to right bottom,rgb(17, 175, 175),rgba(255, 255, 255, 0.801));
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    padding: 0 100px;
+}
+
+#footer > img{
+    position: absolute; /* So that the image goes to the start*/
+    left: 0;
+    height: 100%;
+    z-index: 0;
+}
+
+#f1 img{
+    height: 100px;
+}
+
+#f1,#f2,#f3,#f4{
+    width: fit-content; /*so that it fits all of the content*/
+    /* background-color: red; */
+    position: relative;
+    z-index: 99;
+}
+
+#f2 h3{
+    font-size: 1.6vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: black;
+    margin-bottom: 8px;
+}
+
+#f3 h3 {
+    font-size: 1.6vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  #f4 h4 {
+    font-size: 1vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 600;
+    line-height: 20px;
+    line-height: 20px;
+    margin-bottom: 8px;
+  }
